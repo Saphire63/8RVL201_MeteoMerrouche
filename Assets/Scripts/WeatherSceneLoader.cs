@@ -2,11 +2,15 @@ using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class WeatherSceneLoader : MonoBehaviour
 {
+    public TextMeshProUGUI temperatureText;
+
     void Start()
     {
+        Debug.Log("Lancée script weather");
         StartCoroutine(GetWeather());
     }
 
@@ -22,7 +26,7 @@ public class WeatherSceneLoader : MonoBehaviour
             WeatherData data = JsonUtility.FromJson<WeatherData>(request.downloadHandler.text);
 
             float temp = data.current_weather.temperature;
-
+            temperatureText.text=$"{temp} C°";
             if (temp > 10)
                 SceneManager.LoadScene("EteScene", LoadSceneMode.Additive);
             else
@@ -32,6 +36,7 @@ public class WeatherSceneLoader : MonoBehaviour
         else
         {
             Debug.LogError(request.error);
+            temperatureText.text= "erreur";
         }
     }
 }
