@@ -7,7 +7,7 @@ using TMPro;
 public class WeatherSceneLoader : MonoBehaviour
 {
     public TextMeshProUGUI temperatureText;
-
+    public ApplyTheme theme;
     void Start()
     {
         Debug.Log("Lancée script weather");
@@ -28,9 +28,15 @@ public class WeatherSceneLoader : MonoBehaviour
             float temp = data.current_weather.temperature;
             temperatureText.text=$"{temp} C°";
             if (temp > 10)
+            {
                 SceneManager.LoadScene("EteScene", LoadSceneMode.Additive);
+                theme.ApplySummerLighting();
+            }
             else
+            {
                 SceneManager.LoadScene("HiverScene", LoadSceneMode.Additive);
+                theme.ApplyWinterLighting();
+            }
             Debug.Log("Température : " + temp);
         }
         else
