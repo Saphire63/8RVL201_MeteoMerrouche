@@ -32,8 +32,9 @@ public class WeatherSceneLoader : MonoBehaviour
             float temp = data.current_weather.temperature;
             temperatureText.text = $"{temp} C°";
 
-            if (temp > 10)
+            if (temp > 5)
             {
+                Debug.Log("summer");
                 SceneManager.LoadScene("EteScene", LoadSceneMode.Additive);
                 yield return null; // attend que la scène soit chargée
                 AssignTeleportComponents();

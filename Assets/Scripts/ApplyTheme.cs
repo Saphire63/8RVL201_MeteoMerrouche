@@ -15,19 +15,19 @@ public class ApplyTheme : MonoBehaviour
             Debug.Log("Apply Winter Lighting");
             RenderSettings.fog = true;
             RenderSettings.fogColor = new Color(0.75f, 0.8f, 0.85f);
-            RenderSettings.fogDensity = 0.015f;
+            RenderSettings.fogDensity = 0.03f;
 
             if (winterSkybox != null)
                 RenderSettings.skybox = winterSkybox;
 
-            RenderSettings.ambientLight = new Color(0.65f, 0.7f, 0.75f);
+            RenderSettings.ambientLight = new Color(0.45f, 0.5f, 0.55f);
             RenderSettings.ambientIntensity = 0.7f;
 
 
 
             if (directionalLight != null)
             {
-                directionalLight.intensity = 0.6f;
+                directionalLight.intensity = 0.3f;
                 directionalLight.color = new Color(0.8f, 0.85f, 1f);
             }
         }
@@ -50,7 +50,7 @@ public class ApplyTheme : MonoBehaviour
 
             if (directionalLight != null)
             {
-                directionalLight.intensity = 1.1f;
+                directionalLight.intensity = 0.75f;
                 directionalLight.color = new Color(1f, 0.98f, 0.95f);
             }
         }
